@@ -1,10 +1,15 @@
 import React, { useState } from "react";
+import { addTodo } from "../slices/todoSlice";
+import { useDispatch } from "react-redux";
 
 const AddTodo = () => {
   const [input, setInput] = useState();
+  const dispatch = useDispatch();
   console.log(input);
   const submitHandler = (e) => {
     e.preventDefault();
+    dispatch(addTodo(input));
+    setInput("");
   };
   return (
     <div className="max-w-xs mx-auto mt-6">

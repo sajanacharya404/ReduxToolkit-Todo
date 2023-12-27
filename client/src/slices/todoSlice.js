@@ -6,22 +6,24 @@ const initialState = {
 const todoSlice = createSlice({
   name: "todo",
   initialState,
-  addTodo: (state, action) => {
-    const todo = {
-      id: nanoid(),
-      mytodo: action.payload,
-    };
-    state.todos.push(todo);
-  },
-  removeTodo: (state, action) => {
-    state.todos = state.todos.filter((todo) => todo.id !== action.payload);
-  },
-  updateTodo: (state, action) => {
-    const { id, updatedTodo } = action.payload;
-    const todo = state.todos.find((todo) => todo.id === id);
-    if (todo) {
-      Object.assign(todo, updatedTodo);
-    }
+  reducers: {
+    addTodo: (state, action) => {
+      const todo = {
+        id: nanoid(),
+        mytodo: action.payload,
+      };
+      state.todos.push(todo);
+    },
+    removeTodo: (state, action) => {
+      state.todos = state.todos.filter((todo) => todo.id !== action.payload);
+    },
+    updateTodo: (state, action) => {
+      const { id, updatedTodo } = action.payload;
+      const todo = state.todos.find((todo) => todo.id === id);
+      if (todo) {
+        Object.assign(todo, updatedTodo);
+      }
+    },
   },
 });
 
