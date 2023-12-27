@@ -1,7 +1,7 @@
 import React from "react";
 
 const App = () => {
-  return <div>Todo reduxtoolkit</div>;
+  return <div>App</div>;
 };
 
 export default App;
