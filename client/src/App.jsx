@@ -1,12 +1,15 @@
 import React from "react";
 import AddTodo from "./components/AddTodo";
-import Todo from "./components/Todo";
+import { Routes, Route } from "react-router-dom";
+import UpdateTodo from "./components/UpdateTodo";
 
 const App = () => {
   return (
     <div>
-      <AddTodo />
-      <Todo />
+      <Routes>
+        <Route path="/" element={<AddTodo />} />
+        <Route path="/update/:id" element={<UpdateTodo />} />
+      </Routes>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = {
-  todos: [{ id: 1, mytodo: "Hello" }],
+  todos: [],
 };
 const todoSlice = createSlice({
   name: "todo",
@@ -21,7 +21,7 @@ const todoSlice = createSlice({
       const { id, updatedTodo } = action.payload;
       const todo = state.todos.find((todo) => todo.id === id);
       if (todo) {
-        Object.assign(todo, updatedTodo);
+        todo.mytodo = updatedTodo;
       }
     },
   },
